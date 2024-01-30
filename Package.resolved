@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftyKeychainKit",
+        "repositoryURL": "https://github.com/andriyslyusar/SwiftyKeychainKit",
+        "state": {
+          "branch": "master",
+          "revision": "f864b84bf570e9b13bacbdbec5133c40ddd75364",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
