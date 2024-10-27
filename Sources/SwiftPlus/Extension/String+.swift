@@ -56,3 +56,33 @@ public extension String {
 
 }
 #endif
+
+
+
+public extension String {
+  
+  private func compare(toVersion targetVersion: String) -> ComparisonResult {
+    let versionDelimiter = "."
+    var result: ComparisonResult = .orderedSame
+    var versionComponents = components(separatedBy: versionDelimiter)
+    var targetComponents = targetVersion.components(separatedBy: versionDelimiter)
+    while versionComponents.count < targetComponents.count {
+      versionComponents.append("0")
+    }
+    while targetComponents.count < versionComponents.count {
+      targetComponents.append("0")
+    }
+    for (version, target) in zip(versionComponents, targetComponents) {
+      result = version.compare(target, options: .numeric)
+      if result != .orderedSame {
+        break
+      }
+    }
+    return result
+  }
+  
+  func `is`(lessThan targetVersion: String) -> Bool {
+    compare(toVersion: targetVersion) == .orderedAscending
+  }
+  
+}
